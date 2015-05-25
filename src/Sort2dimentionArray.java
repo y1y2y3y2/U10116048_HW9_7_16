@@ -2,25 +2,26 @@
 //排序2維陣列
 import java.util.*;
 public class Sort2dimentionArray {
-	//TestProgram1.16
+	//TestProgram	7.16
 
 	public static void main(String[] args) {
 		SortProg sp =new SortProg();
-		int [][] a = new int [6][2];
+		int [][] a = new int [2][6];//
 		/*新增元素*/
 		a[0][0]=4;
-		a[0][1]=2;
-		a[1][0]=1;
+		a[1][0]=2;
+		a[0][1]=1;
 		a[1][1]=7;
-		a[2][0]=4;
-		a[2][1]=5;
-		a[3][0]=1;
-		a[3][1]=2;
-		a[4][0]=1;
-		a[4][1]=1;
-		a[5][0]=4;
-		a[5][1]=4;
+		a[0][2]=4;
+		a[1][2]=5;
+		a[0][3]=1;
+		a[1][3]=2;
+		a[0][4]=1;
+		a[1][4]=1;
+		a[0][5]=4;
+		a[1][5]=1;		
 		/**/
+		System.out.println("TestProgram 7.16:");
 		System.out.println("原始陣列:");
 		sp.display(a);
 		System.out.println("-----------------");
@@ -31,17 +32,34 @@ public class Sort2dimentionArray {
 }
 class SortProg{
 	 public static void Sort(int m[][] ){
+		//先拆開
+		 int []temp1 =new int[6];
+		 int []temp2 =new int[6];
+		 
+		 for(int i=0;i<6;i++){
+			 temp1[i]=m[0][i];
+			 temp2[i]=m[1][i];
+		 }
+		 
+		//排序
+		Arrays.sort(temp1);
+		Arrays.sort(temp2);
 		
+		//再合併
+		for(int i=0;i<6;i++){
+			 m[0][i]=temp1[i];
+			 m[1][i]=temp2[i];
+		 }
 		
-		display(m);
+		display(m);//印出結果
 		 
 	    }
 	 public static void display(int m[][]){
 		 
-		 for(int x=0;x<6;x++){
+		 for(int y=0;y<6;y++){
 			 int c=0;//排版用
 			 System.out.print("{");
-			 for(int y=0;y<2;y++){
+			 for(int x=0;x<2;x++){
 				 System.out.print(m[x][y]);
 				 /*排版用*/
 				 c++;
