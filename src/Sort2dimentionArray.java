@@ -42,7 +42,7 @@ class SortProg{
 		 }
 		 
 		//排序
-		Arrays.sort(temp1);
+		Arrays.sort(temp1);//使用library裡的Quicksort
 		Arrays.sort(temp2);
 		
 		//再合併
